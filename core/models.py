@@ -1,0 +1,36 @@
+from django.db import models
+
+# Create your models here.
+class Login(models.Model):
+    Correo=models.EmailField(primary_key=True, max_length=45)
+    Pass=models.CharField(max_length=45)
+
+    def __str__(self):
+        return self.Correo
+
+class Region(models.Model):
+    IdRegion=models.IntegerField(primary_key=True)
+    Descripcion=models.CharField(max_length=45)
+
+    def __str__(self):
+        return self.Descripcion
+class Ciudad(models.Model):
+    IdCiudad=models.IntegerField(primary_key=True)
+    Descripcion=models.CharField(max_length=45)
+    Region=models.ForeignKey(Region, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.Descripcion
+
+class Cliente(models.Model):
+    Rut=models.CharField(primary_key=True, max_length=45)
+    Nombre=models.CharField(max_length=45)
+    Correo=models.ForeignKey(Login, on_delete=models.CASCADE)
+    FechaNaci=models.DateField()
+    Telefono=models.IntegerField()
+    Vivienda=models.CharField(max_length=45)
+    Region=models.ForeignKey(Region, on_delete=models.CASCADE)
+    Ciudad=models.ForeignKey(Ciudad, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.Rut
