@@ -30,3 +30,4 @@ def registrar(request):
         return render(request, 'Views/contacto.htm')
     else:
         return render(request, 'Views/contacto.htm')
+
