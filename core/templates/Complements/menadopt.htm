@@ -18,7 +18,7 @@
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: mediumseagreen">
-        <a class="navbar-brand" href="{% url 'home' %}">
+        <a class="navbar-brand" href="{% url 'menuadopt' %}">
             <img src="../../static/img/Otras/logo.png" width="80%" class="d-inline-block align-top" alt="">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText"
@@ -30,19 +30,13 @@
             <span class="navbar-text">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" style="color: white" href="{% url 'home' %}">Inicio<span class="sr-only">(current)</span></a>
+                        <a class="nav-link" style="color: white" href="{% url 'menuadopt' %}">Inicio<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" style="color:white" href="#">Quienes Somos</a>
+                        <a class="nav-link" style="color:white" href="{% url 'listaradopt' %}">Listado Rescatados</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" style="color: white" href="#">Servicios</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" style="color: white" href="{% url 'contacto' %}">Contactanos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" style="color: white" href="{% url 'login' %}">Iniciar Sesion</a>
+                        <a class="nav-link" style="color: white" href="{% url 'home' %}">Salir</a>
                     </li>
                 </ul>
             </span>

@@ -13,7 +13,7 @@
                         <form id="login-form" class="form" method="POST">
                             {% csrf_token %}
                             <hr>
-                            <h3 class="text-center">Registro de Usuario</h3>
+                            <h3 class="text-center">Iniciar Sesion</h3>
                             <hr>
                             <div class="form-group">
                                 <label for="Correo">Correo Electronico:</label><br>
@@ -27,6 +27,9 @@
                             <div class="form-group" method="POST">
                                 <input type="submit" name="btnIngresar" class="btn btn-info btn-md" value="Ingresar">
                             </div>
+                            <a href="{% url 'menuadmin' %}">Administrador</a>
+                            <a href="{% url 'menuadopt' %}">Adoptante</a>
+                            <a href="{% url 'registrarse' %}">Registrarse</a>
                         </form>
                     </div>
                 </div>

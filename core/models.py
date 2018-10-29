@@ -34,3 +34,21 @@ class Cliente(models.Model):
 
     def __str__(self):
         return self.Rut
+
+class Registro(models.Model):
+    Foto=models.FileField()
+    Nombre=models.CharField(max_length=45)
+    Descripcion=models.TextField(max_length=45)
+    Raza=models.CharField(max_length=45)
+    Estado=models.CharField(max_length=45)
+
+    def __str__(self):
+        return self.Nombre
+
+class Usuario(models.Model):
+    Usuario=models.CharField(primary_key=True, max_length=45)
+    Pass=models.CharField(max_length=45)
+    TipoUsuario=models.CharField(max_length=45)
+
+    def __str__(self):
+        return self.Usuario
