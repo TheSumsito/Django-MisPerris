@@ -1,10 +1,9 @@
 from django.contrib import admin
-from .models import Login, Region, Ciudad, Cliente, Registro, Usuario
+from .models import Region, Ciudad, Contacto, Mascota, Usuario
 
 # Register your models here.
-admin.site.register(Login)
 admin.site.register(Region)
 admin.site.register(Ciudad)
-admin.site.register(Cliente)
-admin.site.register(Registro)
+admin.site.register(Contacto)
+admin.site.register(Mascota)
 admin.site.register(Usuario)

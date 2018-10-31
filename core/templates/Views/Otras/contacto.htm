@@ -37,13 +37,17 @@
                             <div class="form-group">
                                 <label for="Region">Region:</label><br>
                                 <select class="form-control" id="Region" name="Region">
-                                    <option>Metropolitana</option>
+                                    {% for r in region%}
+                                        <option value="{{r.IdRegion}}">{{r.Descripcion}}</option>
+                                    {% endfor %}
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label for="Ciudad">Ciudad:</label><br>
                                 <select class="form-control" id="Ciudad" name="Ciudad">
-                                    <option>Santiago</option>
+                                    {% for c in ciudad %}
+                                        <option value="{{c.IdCiudad}}">{{c.Descripcion}}</option>
+                                    {% endfor %}    
                                 </select>
                             </div>
                             <div class="form-group">

@@ -1,0 +1,29 @@
+{% extends 'Complements/menadopt.htm' %}
+{% block head %}
+
+{% endblock head%}
+{% block body%}
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Fotografia</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Raza</th>
+            <th scope="col">Descripcion</th>
+            <th scope="col">Estado</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for mas in mascotas %}
+        <tr>
+            <td>{{mas.Foto}}</td>
+            <td>{{mas.Nombre}}</td>
+            <td>{{mas.Raza}}</td>
+            <td>{{mas.Descripcion}}</td>
+            <td>{{mas.Estado}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock body %}
