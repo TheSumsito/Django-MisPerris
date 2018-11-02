@@ -15,7 +15,6 @@ class Ciudad(models.Model):
     def __str__(self):
         return self.Descripcion
 
-
         
 class Usuario(models.Model):
     Correo=models.CharField(primary_key=True, max_length=45)
@@ -25,10 +24,8 @@ class Usuario(models.Model):
     def __str__(self):
         return self.Correo
 
-
-
 class Mascota(models.Model):
-    Foto=models.FileField()
+    Foto=models.ImageField()
     Nombre=models.CharField(primary_key=True, max_length=45)
     Descripcion=models.TextField(max_length=45)
     Raza=models.CharField(max_length=45)

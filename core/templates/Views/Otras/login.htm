@@ -3,6 +3,7 @@
 {% endblock head %}
 
 
+
 {% block body %}
 <form method="POST" id="Formulario" autocomplete="off">
     <div id="login">
@@ -26,6 +27,7 @@
                             <hr>
                             <div class="form-group" method="POST">
                                 <input type="submit" name="btnIngresar" class="btn btn-info btn-md" value="Ingresar">
+                                <input type="submit" name="btnRegistrarse" class="btn btn-info btn-md" value="Registrarse">
                             </div>
                             <a href="{% url 'menuadmin' %}">Administrador</a>
                             <a href="{% url 'menuadopt' %}">Adoptante</a>

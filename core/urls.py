@@ -1,17 +1,18 @@
 from django.urls import path
 from .views import contacto, home, usuario, login, menu, agregar, menuadopt, listaradopt, listaradmin, registraradopt, registraradmin
+from django.contrib import admin
 
 urlpatterns = [
     path('', home, name="home"),
-    path('contacto/', contacto, name="contacto"),
-    path('usuario/', usuario, name="usuario"),
-    path('login/', login, name="login"),
-    path('menuadmin/', menu, name="menuadmin"),
-    path('agregar/', agregar, name="agregar"),
-    path('menuadopt/', menuadopt, name="menuadopt"),
-    path('listaradopt/', listaradopt, name="listaradopt"),
-    path('listaradmin/', listaradmin, name="listaradmin"),
-    path('registrarse/', registraradopt, name="registraradopt"),
-    path('registraradmin/', registraradmin, name="registraradmin")
+    path('Contactanos/', contacto, name="contacto"),
+    path('Registro/', usuario, name="usuario"),
+    path('Login/', login, name="login"),
+    path('Administracion/', menu, name="menuadmin"),
+    path('Administracion/Agregar/', agregar, name="agregar"),
+    path('Adoptante/', menuadopt, name="menuadopt"),
+    path('Adoptante/Listado/', listaradopt, name="listaradopt"),
+    path('Administracion/Listado/', listaradmin, name="listaradmin"),
+    path('Home/Registrarse/', registraradopt, name="registraradopt"),
+    path('Administracion/Registro/', registraradmin, name="registraradmin"),
 
 ]

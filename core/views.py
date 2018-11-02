@@ -18,6 +18,9 @@ def contacto(request):
         ciudad=request.POST.get("Ciudad", "")
         tipo=request.POST.get("TipoVivienda", "")
 
+        obj_ciudad=Ciudad.objects.get(IdCiudad=ciudad)
+        obj_region=Region.objects.get(IdRegion=region)
+
         con=Contacto(
             Rut=run,
             Nombre=nombre,
@@ -25,8 +28,8 @@ def contacto(request):
             FechaNaci=fecha,
             Telefono=telefono,
             Vivienda=tipo,
-            IdRegion=region,
-            IdCiudad=ciudad
+            IdRegion=obj_region,
+            IdCiudad=obj_ciudad
         )
         con.save()
         return render(request, 'Views/Otras/contacto.htm',{'ciudad':ciudades, 'region': regiones})
@@ -98,6 +101,11 @@ def listaradopt(request):
 def usuario(request):
     return render(request, 'Views/Otras/usuario.htm')
 def login(request):
+    registrar=request.POST.get("btnRegistrarse")
+    if registrar=="Registrarse":
+        return render(request, 'Views/Otras/registraradopt.htm')
+
+
     return render(request, 'Views/Otras/login.htm')
 def menu(request):
     return render(request, 'Views/Administrador/menuadmin.htm')
