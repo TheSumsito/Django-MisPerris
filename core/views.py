@@ -68,9 +68,9 @@ def registraradmin(request):
             TipoUsuario=tipo
         )
         usu.save()
-        return render(request, 'Views/Administrador/registraradmin.htm')
+        return render(request, 'Views/Administrador/regadmin.htm')
     else:
-        return render(request, 'Views/Administrador/registraradmin.htm')
+        return render(request, 'Views/Administrador/regadmin.htm')
 
 def registraradopt(request):
     if request.POST:
@@ -83,32 +83,34 @@ def registraradopt(request):
             TipoUsuario=tipo
         )
         usu.save()
-        return render(request, 'Views/Otras/registraradopt.htm')
+        return render(request, 'Views/Otras/regadopt.htm')
     else:
-        return render(request, 'Views/Otras/registraradopt.htm')
+        return render(request, 'Views/Otras/regadopt.htm')
 
 def listaradmin(request):
     mascota=Mascota.objects.all()
-    return render(request, 'Views/Administrador/listaradmin.htm', {'mascotas':mascota})
+    return render(request, 'Views/Administrador/listar.htm', {'mascotas':mascota})
 def listaradopt(request):
     mascota=Mascota.objects.all()
-    return render(request, 'Views/Adoptante/listaradopt.htm', {'mascotas': mascota})
+    return render(request, 'Views/Adoptante/listar.htm', {'mascotas': mascota})
+
+def login(request):
+    return render(request, 'Views/Otras/login.htm')
+
+
+
 
 
 
 
 # ! Paginas
-def usuario(request):
-    return render(request, 'Views/Otras/usuario.htm')
-def login(request):
-    registrar=request.POST.get("btnRegistrarse")
-    if registrar=="Registrarse":
-        return render(request, 'Views/Otras/registraradopt.htm')
 
 
-    return render(request, 'Views/Otras/login.htm')
+
+
+
 def menu(request):
-    return render(request, 'Views/Administrador/menuadmin.htm')
+    return render(request, 'Views/Administrador/menu.htm')
     
 def menuadopt(request):
-    return render(request, 'Views/Adoptante/menuadopt.htm')
+    return render(request, 'Views/Adoptante/menu.htm')
