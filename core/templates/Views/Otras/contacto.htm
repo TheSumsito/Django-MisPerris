@@ -3,71 +3,75 @@
 {% endblock head %}
 
 {% block body %}
-<form method="POST" id="Formulario" autocomplete="off">
-    <div id="login">
-        <div class="container">
-            <div id="login-row" class="row justify-content-center align-items-center">
-                <div id="login-column" class="col-md-6">
-                    <div id="login-box" class="col-md-12">
-                        <form id="login-form" class="form" method="POST">
-                            {% csrf_token %}
-                            <hr>
-                            <h3 class="text-center">Contactanos Para Mas Información</h3>
-                            <hr>
-                            <div class="form-group">
-                                <label for="Correo">Correo Electronico:</label><br>
-                                <input type="text" name="Correo" id="Correo" class="form-control" placeholder="Ej: Ejemplo@Dominio.com">
-                            </div>
-                            <div class="form-group">
-                                <label for="Run">Run:</label><br>
-                                <input type="text" name="Run" id="Run" class="form-control" placeholder="Ej: 11.111.111-1">
-                            </div>
-                            <div class="form-group">
-                                <label for="Nombre">Nombre Completo:</label><br>
-                                <input type="text" name="Nombre" id="Nombre" class="form-control" placeholder="Ej: Ignacio Copano">
-                            </div>
-                            <div class="form-group">
-                                <label for="FechaNaci">Fecha de Nacimiento:</label><br>
-                                <input type="date" name="Fecha" id="Fecha" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label for="Telefono">Telefono:</label><br>
-                                <input type="text" name="Telefono" id="Telefono" class="form-control" placeholder="Ej: 947261827">
-                            </div>
-                            <div class="form-group">
-                                <label for="Region">Region:</label><br>
-                                <select class="form-control" id="Region" name="Region">
-                                    {% for r in region%}
+
+<body background="../../../static/img/Fondos/Contactanos.jpg">
+    <form method="POST" id="Formulario" autocomplete="off">
+        <div id="login">
+            <div class="container">
+                <div id="login-row" class="row justify-content-center align-items-center">
+                    <div id="login-column" class="col-md-6">
+                        <div id="login-box" class="col-md-12">
+                            <form id="login-form" class="form" method="POST">
+                                {% csrf_token %}
+                                <hr>
+                                <h3 class="text-center" style="color: white">Contactanos Para Mas Información</h3>
+                                <hr>
+                                <div class="form-group">
+                                    <label for="Correo" style="color: white">Correo Electronico:</label><br>
+                                    <input type="text" name="Correo" id="Correo" class="form-control" placeholder="Ej: Ejemplo@Dominio.com">
+                                </div>
+                                <div class="form-group">
+                                    <label for="Run" style="color: white">Run:</label><br>
+                                    <input type="text" name="Run" id="Run" class="form-control" placeholder="Ej: 11.111.111-1">
+                                </div>
+                                <div class="form-group">
+                                    <label for="Nombre" style="color: white">Nombre Completo:</label><br>
+                                    <input type="text" name="Nombre" id="Nombre" class="form-control" placeholder="Ej: Ignacio Copano">
+                                </div>
+                                <div class="form-group">
+                                    <label for="FechaNaci" style="color: white">Fecha de Nacimiento:</label><br>
+                                    <input type="date" name="Fecha" id="Fecha" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="Telefono" style="color: white">Telefono:</label><br>
+                                    <input type="text" name="Telefono" id="Telefono" class="form-control" placeholder="Ej: 947261827">
+                                </div>
+                                <div class="form-group">
+                                    <label for="Region" style="color: white">Region:</label><br>
+                                    <select class="form-control" id="Region" name="Region">
+                                        {% for r in region%}
                                         <option value="{{r.IdRegion}}">{{r.Descripcion}}</option>
-                                    {% endfor %}
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="Ciudad">Ciudad:</label><br>
-                                <select class="form-control" id="Ciudad" name="Ciudad">
-                                    {% for c in ciudad %}
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="Ciudad" style="color: white">Ciudad:</label><br>
+                                    <select class="form-control" id="Ciudad" name="Ciudad">
+                                        {% for c in ciudad %}
                                         <option value="{{c.IdCiudad}}">{{c.Descripcion}}</option>
-                                    {% endfor %}    
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="TipoVivienda">Tipo de Vivienda:</label><br>
-                                <select name="TipoVivienda" id="TipoVivienda" class="form-control">
-                                    <option value="C_Patio_Gr">Casa con Patio Grande</option>
-                                    <option value="C_Patio_Pe">Casa con Patio Pequeño</option>
-                                    <option value="C_Sin_Pat">Casa sin Patio</option>
-                                    <option value="Departamento">Departamento</option>
-                                </select>
-                            </div>
-                            <hr>
-                            <div class="form-group" method="POST">
-                                <input type="submit" name="btnIngresar" class="btn btn-info btn-md" value="Ingresar">
-                            </div>
-                        </form>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="TipoVivienda" style="color: white">Tipo de Vivienda:</label><br>
+                                    <select name="TipoVivienda" id="TipoVivienda" class="form-control">
+                                        <option value="C_Patio_Gr">Casa con Patio Grande</option>
+                                        <option value="C_Patio_Pe">Casa con Patio Pequeño</option>
+                                        <option value="C_Sin_Pat">Casa sin Patio</option>
+                                        <option value="Departamento">Departamento</option>
+                                    </select>
+                                </div>
+                                <hr>
+                                <div class="form-group" method="POST">
+                                    <input type="submit" name="btnIngresar" class="btn btn-success btn-md" value="Ingresar">
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</form>
+    </form>
+
+</body>
 {% endblock body%}
