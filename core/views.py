@@ -95,6 +95,20 @@ def listaradopt(request):
     return render(request, 'Views/Adoptante/listar.htm', {'mascotas': mascota})
 
 def login(request):
+    if request.POST:
+        correo=request.POST.get("Correo", "")
+        password=request.POST.get("Pass", "")
+        if(correo=="mjaral@outlook.com" and password=="123"):
+            return render(request, 'Views/Administrador/menu.htm')
+        elif(correo=="mlira@outlook.com" and password=="123"):
+            return render(request,'Views/Adoptante/menu.htm')
+    else:
+        return render(request, 'Views/Otras/login.htm')
+    
+
+
+
+
     return render(request, 'Views/Otras/login.htm')
 
 

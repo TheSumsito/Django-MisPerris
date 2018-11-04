@@ -3,7 +3,6 @@
 {% endblock head %}
 
 {% block body %}
-
 <body background="../../../static/img/Fondos/Contactanos.jpg">
     <form method="POST" id="Formulario" autocomplete="off">
         <div id="login">
@@ -18,23 +17,23 @@
                                 <hr>
                                 <div class="form-group">
                                     <label for="Correo" style="color: white">Correo Electronico:</label><br>
-                                    <input type="text" name="Correo" id="Correo" class="form-control" placeholder="Ej: Ejemplo@Dominio.com">
+                                    <input type="text" name="Correo" id="Correo" class="form-control" required pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}" title="Ejemplo@Dominio.com" placeholder="Ej: Ejemplo@Dominio.com" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="Run" style="color: white">Run:</label><br>
-                                    <input type="text" name="Run" id="Run" class="form-control" placeholder="Ej: 11.111.111-1">
+                                    <input type="text" name="Run" id="Run" class="form-control" placeholder="Ej: 11.111.111-1" required pattern="[0-9]+[.]+[0-9]+[.]+[0-9]+[-]+[0-9K-k]" title="11.111.111-1">
                                 </div>
                                 <div class="form-group">
                                     <label for="Nombre" style="color: white">Nombre Completo:</label><br>
-                                    <input type="text" name="Nombre" id="Nombre" class="form-control" placeholder="Ej: Ignacio Copano">
+                                    <input type="text" name="Nombre" id="Nombre" class="form-control" placeholder="Ej: Ignacio Copano" required pattern="[a-zA-Z]" title="Ignacion Copano">
                                 </div>
                                 <div class="form-group">
                                     <label for="FechaNaci" style="color: white">Fecha de Nacimiento:</label><br>
-                                    <input type="date" name="Fecha" id="Fecha" class="form-control">
+                                    <input type="date" name="Fecha" id="Fecha" class="form-control" required title="DD/MM/YYYY">
                                 </div>
                                 <div class="form-group">
                                     <label for="Telefono" style="color: white">Telefono:</label><br>
-                                    <input type="text" name="Telefono" id="Telefono" class="form-control" placeholder="Ej: 947261827">
+                                    <input type="text" name="Telefono" id="Telefono" class="form-control" placeholder="Ej: 947261827" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="Region" style="color: white">Region:</label><br>
