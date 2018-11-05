@@ -26,7 +26,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="Nombre" style="color: white">Nombre Completo:</label><br>
-                                    <input type="text" name="Nombre" id="Nombre" class="form-control" placeholder="Ej: Ignacio Copano" required pattern="[a-zA-Z]" title="Ignacion Copano">
+                                    <input type="text" name="Nombre" id="Nombre" class="form-control" placeholder="Ej: Ignacio Copano" required title="Ignacion Copano">
                                 </div>
                                 <div class="form-group">
                                     <label for="FechaNaci" style="color: white">Fecha de Nacimiento:</label><br>
@@ -34,7 +34,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="Telefono" style="color: white">Telefono:</label><br>
-                                    <input type="text" name="Telefono" id="Telefono" class="form-control" placeholder="Ej: 947261827" required>
+                                    <input type="text" name="Telefono" id="Telefono" class="form-control" placeholder="Ej: 947261827" required pattern="[0-9]">
                                 </div>
                                 <div class="form-group">
                                     <label for="Region" style="color: white">Region:</label><br>
@@ -64,14 +64,6 @@
                                 <hr>
                                 <div class="form-group" method="POST">
                                     <input type="submit" name="btnIngresar" class="btn btn-success btn-md" value="Ingresar">
-                                </div>
-                                <div class="form-group">
-                                    <label for="Region" style="color: white">Region:</label><br>
-                                    <select class="form-control" id="Region" name="Region">
-                                        {% for r in region%}
-                                        <option value="{{r.IdRegion}}">{{r.Descripcion}}</option>
-                                        {% endfor %}
-                                    </select>
                                 </div>
                             </form>
                         </div>
