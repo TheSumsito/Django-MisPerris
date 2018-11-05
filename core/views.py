@@ -112,17 +112,7 @@ def login(request):
     return render(request, 'Views/Otras/login.htm')
 
 
-
-
-
-
-
 # ! Paginas
-
-
-
-
-
 def menu(request):
     return render(request, 'Views/Administrador/menu.htm')
     

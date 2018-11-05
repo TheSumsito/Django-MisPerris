@@ -1,5 +1,6 @@
 {% extends 'Complements/inicio.htm' %}
 {% block head %}
+<title>Iniciar Sesion</title>
 {% endblock head %}
 
 
@@ -20,11 +21,11 @@
                                 <hr>
                                 <div class="form-group">
                                     <label for="Correo" style="color: white">Correo Electronico:</label><br>
-                                    <input type="text" name="Correo" id="Correo" class="form-control" placeholder="Ej: Ejemplo@Dominio.com" required>
+                                    <input type="text" name="Correo" id="Correo" class="form-control" placeholder="Ej: Ejemplo@Dominio.com" required pattern="[a-zA-Z_]+[.]">
                                 </div>
                                 <div class="form-group">
                                     <label for="Pass" style="color: white">Contraseña:</label><br>
-                                    <input type="password" name="Pass" id="Pass" class="form-control" placeholder="" required maxlength="45">
+                                    <input type="text" name="Pass" id="Pass" class="form-control" placeholder="" required maxlength="45">
                                 </div>
                                 <hr>
                                 <div class="form-group" method="POST">
@@ -33,6 +34,7 @@
                                 <a href="{% url 'usuario' %}">Registrar</a>
                                 <a href="{% url 'menuadmin' %}">Administrador</a>
                                 <a href="{% url 'menuadopt' %}">Adoptante</a>
+
                             </form>
                         </div>
                     </div>

@@ -1,5 +1,6 @@
 {% extends 'Complements/inicio.htm' %}
 {% block head %}
+<title>Contactanos</title>
 {% endblock head %}
 
 {% block body %}
@@ -63,6 +64,14 @@
                                 <hr>
                                 <div class="form-group" method="POST">
                                     <input type="submit" name="btnIngresar" class="btn btn-success btn-md" value="Ingresar">
+                                </div>
+                                <div class="form-group">
+                                    <label for="Region" style="color: white">Region:</label><br>
+                                    <select class="form-control" id="Region" name="Region">
+                                        {% for r in region%}
+                                        <option value="{{r.IdRegion}}">{{r.Descripcion}}</option>
+                                        {% endfor %}
+                                    </select>
                                 </div>
                             </form>
                         </div>
