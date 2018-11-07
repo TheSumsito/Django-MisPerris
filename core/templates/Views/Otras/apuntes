@@ -1,0 +1,13 @@
+    if request.POST:
+        correo=request.POST.get("Correo", "")
+        password=request.POST.get("Pass", "")
+        tipo="Adoptante"
+        usu=Usuario(
+            Correo=correo,
+            Pass=password,
+            TipoUsuario=tipo
+        )
+        usu.save()
+        return render(request, 'Views/Otras/regadopt.htm')
+    else:
+        return render(request, 'Views/Otras/regadopt.htm')

@@ -4,7 +4,6 @@
 {% endblock head %}
 
 {% block body %}
-
 <body background="../../../static/img/Fondos/RegistroAdoptante.jpg">
     <form method="POST" id="Formulario" autocomplete="off">
         <div id="login">
@@ -15,20 +14,41 @@
                             <form id="login-form" class="form" method="POST">
                                 {% csrf_token %}
                                 <hr>
-                                <h3 class="text-center" style="color: white">Registro Usuario Adoptante</h3>
+                                <h3 class="text-center" style="color: white">Registro Adoptante</h3>
                                 <hr>
                                 <div class="form-group">
-                                    <label for="Nombre" style="color: white">Correo:</label><br>
-                                    <input type="text" name="Correo" id="Correo" class="form-control" required pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}" title="Ejemplo@Dominio.com" placeholder="Ej: Ejemplo@Dominio.com">
+                                    <label for="Nombre" style="color: white">Nombre:</label><br>
+                                    <input type="text" name="Nombre" id="Nombre" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="Nombre" style="color: white">Apellido:</label><br>
+                                    <input type="text" name="Apellido" id="Apellido" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="Nombre" style="color: white">Correo Electronico:</label><br>
+                                    <input type="text" name="Correo" id="Correo" class="form-control" required pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}"
+                                        title="Ejemplo@Dominio.com" placeholder="Ej: Ejemplo@Dominio.com">
+                                </div>
+                                <h3 class="text-center" style="color: white">Usuario</h3>
+                                <hr>
+                                <div class="form-group">
+                                    <label for="Nombre" style="color: white">Usuario:</label><br>
+                                    <input type="text" name="User" id="User" class="form-control" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="Raza" style="color: white">Contraseña:</label><br>
-                                    <input type="password" name="Pass" id="Pass" class="form-control" placeholder="" required maxlength="45">
+                                    <input type="password" name="Pass" id="Pass" class="form-control" placeholder=""
+                                        required maxlength="45">
+                                </div>
+                                <div class="form-group">
+                                    <label for="Nombre" style="color: white">Repetir Contraseña:</label><br>
+                                    <input type="text" name="Repass" id="Repass" class="form-control" required>
                                 </div>
                                 <hr>
                                 <div class="form-group" method="POST">
                                     <input type="submit" name="btnIngresar" class="btn btn-success btn-md" value="Registrar">
                                 </div>
+                                <hr>
                             </form>
                         </div>
                     </div>
@@ -37,5 +57,4 @@
         </div>
     </form>
 </body>
-
 {% endblock body%}

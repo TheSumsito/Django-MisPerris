@@ -13,6 +13,5 @@ urlpatterns = [
     path('Adoptante/Listado/', listaradopt, name="listaradopt"),
     path('Administracion/Listado/', listaradmin, name="listaradmin"),
     path('Home/Registrarse/', registraradopt, name="registraradopt"),
-    path('Administracion/Registro/', registraradmin, name="registraradmin"),
-
+    path('Administrador/Registro/', registraradmin, name="registraradmin"),
 ]

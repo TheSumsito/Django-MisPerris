@@ -1,5 +1,9 @@
 from django.shortcuts import render
 from .models import Contacto, Region,Ciudad, Mascota, Usuario
+from django.contrib import auth
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
+
 
 # Create your views here.
 def home(request):
@@ -59,33 +63,51 @@ def agregar(request):
 
 def registraradmin(request):
     if request.POST:
+        nombre=request.POST.get("Nombre", "")
+        apellido=request.POST.get("Apellido", "")
         correo=request.POST.get("Correo", "")
-        contrasena=request.POST.get("Pass","")
-        tipo="Administrador"
-        usu=Usuario(
-            Correo=correo,
-            Pass=contrasena,
-            TipoUsuario=tipo
+        password=request.POST.get("Pass", "")
+        repassword=request.POST.get("Repass", "")
+        usuario=request.POST.get("User", "")
+
+        usu=User.objects.create_user(
+            first_name=nombre,
+            last_name=apellido,
+            username=usuario, 
+            email=correo, 
+            password=password
         )
-        usu.save()
-        return render(request, 'Views/Administrador/regadmin.htm')
+
+        if password==repassword:
+            usu.is_staff=True
+            usu.save()
+            return render(request, 'Views/Administrador/regadmin.htm')
     else:
         return render(request, 'Views/Administrador/regadmin.htm')
 
 def registraradopt(request):
     if request.POST:
+        nombre=request.POST.get("Nombre", "")
+        apellido=request.POST.get("Apellido", "")
         correo=request.POST.get("Correo", "")
         password=request.POST.get("Pass", "")
-        tipo="Adoptante"
-        usu=Usuario(
-            Correo=correo,
-            Pass=password,
-            TipoUsuario=tipo
+        repassword=request.POST.get("Repass", "")
+        username=request.POST.get("User", "")
+
+        usu=User.objects.create_user(
+            first_name=nombre,
+            last_name=apellido,
+            username=username, 
+            email=correo, 
+            password=repassword
         )
-        usu.save()
-        return render(request, 'Views/Otras/regadopt.htm')
+        if password==repassword:
+            usu.is_staff=False
+            usu.save()
+            return render(request, 'Views/Otras/regadopt.htm')
     else:
         return render(request, 'Views/Otras/regadopt.htm')
+
 
 def listaradmin(request):
     mascota=Mascota.objects.all()
@@ -98,18 +120,19 @@ def login(request):
     if request.POST:
         correo=request.POST.get("Correo", "")
         password=request.POST.get("Pass", "")
-        if(correo=="mjaral@outlook.com" and password=="123"):
-            return render(request, 'Views/Administrador/menu.htm')
-        elif(correo=="mlira@outlook.com" and password=="123"):
-            return render(request,'Views/Adoptante/menu.htm')
+        user=auth.authenticate(username=correo, password=password)
+        if user is not None and user.is_active:
+            auth.login(request, user)
+            na=request.user.is_staff
+            if na==True:
+                return render(request, 'Views/Administrador/menu.htm')
+            else:
+                return render(request, 'Views/Adoptante/menu.htm')
     else:
         return render(request, 'Views/Otras/login.htm')
-    
 
 
 
-
-    return render(request, 'Views/Otras/login.htm')
 
 
 # ! Paginas
