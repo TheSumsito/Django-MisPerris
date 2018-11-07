@@ -141,3 +141,49 @@ def menu(request):
     
 def menuadopt(request):
     return render(request, 'Views/Adoptante/menu.htm')
+
+
+def modificar(request):
+    if request.POST:
+        accion=request.POST.get("btnAccion","")
+        if accion=="Buscar":
+            nombre=request.POST.get("NombreBusqueda", "")
+            mas=Mascota.objects.get(Nombre=nombre)
+            return render(request, 'Views/Administrador/modificar.htm', {'mas':mas})
+        if accion=="Actualizar":
+            nombremod=request.POST.get("Nombre", "")
+            mas=Mascota.objects.get(Nombre=nombremod)
+
+            nombre=request.POST.get("Nombre", "")
+            raza=request.POST.get("Raza", "")
+            desc=request.POST.get("Descripcion", "")
+            estado=request.POST.get("Estado", "")
+
+            mas.Nombre=nombre
+            mas.Raza=raza
+            mas.Descripcion=desc
+            mas.Estado=estado
+
+            mas.save()
+            return render(request, 'Views/Administrador/modificar.htm')
+    else:
+        return render(request, 'Views/Administrador/modificar.htm')
+
+def eliminar(request):
+    if request.POST:
+        accion=request.POST.get("btnAccion", "")
+        if accion=="Buscar":
+            nombre=request.POST.get("NombreBusqueda", "")
+            mas=Mascota.objects.get(Nombre=nombre)
+            return render(request, 'Views/Administrador/eliminar.htm', {'mas':mas})
+
+        if accion=="Eliminar":
+            nombre=request.POST.get("Nombre", "")
+            mas=Mascota.objects.get(Nombre=nombre)
+            mas.delete()
+            resp=True
+            return render(request, 'Views/Administrador/eliminar.htm', {'mas':mas})
+            
+
+    else:
+        return render(request, 'Views/Administrador/eliminar.htm')

@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import contacto, home, login, menu, agregar, menuadopt, listaradopt, listaradmin, registraradopt, registraradmin
+from .views import contacto, home, login, menu, agregar, menuadopt, listaradopt, listaradmin, registraradopt, registraradmin, modificar, eliminar
 from django.contrib import admin
 
 urlpatterns = [
@@ -14,4 +14,6 @@ urlpatterns = [
     path('Administracion/Listado/', listaradmin, name="listaradmin"),
     path('Home/Registrarse/', registraradopt, name="registraradopt"),
     path('Administrador/Registro/', registraradmin, name="registraradmin"),
+    path('Administrador/Modificar/', modificar, name="modificar"),
+    path('Administrador/Eliminar/', eliminar, name="eliminar")
 ]

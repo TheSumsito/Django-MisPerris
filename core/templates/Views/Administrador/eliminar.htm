@@ -4,4 +4,50 @@
 {% endblock head%}
 {% block body%}
 
+<body background="../../../static/img/Fondos/Agregar.jpg">
+    <form method="POST" id="Formulario" autocomplete="off">
+        <div id="login">
+            <div class="container">
+                <div id="login-row" class="row justify-content-center align-items-center">
+                    <div id="login-column" class="col-md-6">
+                        <div id="login-box" class="col-md-12">
+                            <form id="login-form" class="form" method="POST">
+                                {% csrf_token %}
+                                <hr>
+                                <h3 class="text-center" style="color: white">Ingresar Mascota</h3>
+                                <hr>
+                                <div class="form-group">
+                                        <label for="Nombre">Buscar Mascota:</label><br>
+                                        <input type="text" name="NombreBusqueda" id="NombreBusqueda" class="form-control">
+                                </div>
+                                <div class="form-group" method="POST">
+                                    <input type="submit" name="btnAccion" class="btn btn-success btn-md" value="Buscar">
+                                </div>
+                                <div class="form-group">
+                                    <label for="Nombre">Nombre:</label><br>
+                                    <input type="text" name="Nombre" id="Nombre" value="{{mas.Nombre}}" class="form-control" readonly>
+                                </div>
+                                <div class="form-group">
+                                    <label for="Raza">Raza Predominante:</label><br>
+                                    <input type="text" name="Raza" id="Raza" value="{{mas.Raza}}" class="form-control" disabled>
+                                </div>
+                                <div class="form-group">
+                                    <label for="Descripcion">Descripción:</label><br>
+                                    <input type="text" name="Descripcion" id="Descripcion" value="{{mas.Descripcion}}" class="form-control" disabled>
+                                </div>
+                                <div class="form-group">
+                                    <label for="Estado">Estado:</label><br>
+                                    <input type="text" name="Estado" id="Estado" value="{{mas.Estado}}" class="form-control" disabled>
+                                </div>
+                                <div class="form-group" method="POST">
+                                        <input type="submit" name="btnAccion" class="btn btn-success btn-md" value="Eliminar">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
 {% endblock body %}
