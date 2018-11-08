@@ -5,17 +5,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- CSS -->
     <link rel="stylesheet" href="../../static/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../static/css/lity.css">
+
+    <!-- JS -->
     <script src="../../static/js/jquery-3.3.1.slim.min.js"></script>
     <script src="../../static/js/popper.min.js"></script>
     <script src="../../static/js/bootstrap.min.js"></script>
     <script src="../../static/js/lity.js"></script>
+
+    <!-- Cabecera HTML -->
     {% block head %}
     {% endblock head %}
 </head>
 
 <body>
+    <!-- Menu Adoptante -->
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: mediumseagreen">
         <a class="navbar-brand" href="{% url 'menuadopt' %}">
             <img src="../../static/img/Otras/logo.png" width="80%" class="d-inline-block align-top" alt="">
@@ -35,12 +42,17 @@
                         <a class="nav-link" style="color:white" href="{% url 'listaradopt' %}">Listado Rescatados</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" style="color: white" href="{% url 'home' %}">Salir</a>
+                            <a class="nav-link" style="color: white" href="{% url 'contactoadopt' %}">Contactanos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" style="color: blue" href="{% url 'login' %}">Salir</a>
                     </li>
                 </ul>
             </span>
         </div>
     </nav>
+
+    <!-- Cuerpo HTML -->
     {% block body %}
     {% endblock body %}
 </body>

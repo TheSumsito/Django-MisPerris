@@ -1,3 +1,4 @@
+<!-- MENU -->
 {% extends 'Complements/admin.htm' %}
 {% block head %}
 <title>Registrar Administrador</title>
@@ -5,6 +6,7 @@
 
 {% block body %}
 
+<!-- Registro Usuario Administrador -->
 <body background="../../../static/img/Fondos/RegistrarAdmin.jpg">
     <form method="POST" id="Formulario" autocomplete="off">
         <div id="login">
@@ -17,35 +19,52 @@
                                 <hr style="border-color: white">
                                 <h3 class="text-center" style="color: white">Registro Administrador</h3>
                                 <hr style="border-color: white">
+
+                                <!-- Nombre Administrador -->
                                 <div class="form-group">
                                     <label for="Nombre" style="color: white">Nombre:</label><br>
                                     <input type="text" name="Nombre" id="Nombre" class="form-control" required>
                                 </div>
+
+                                <!-- Apellido Administrador -->
                                 <div class="form-group">
                                     <label for="Nombre" style="color: white">Apellido:</label><br>
                                     <input type="text" name="Apellido" id="Apellido" class="form-control" required>
                                 </div>
+
+                                <!-- Correo Administrador -->
                                 <div class="form-group">
                                     <label for="Nombre" style="color: white">Correo Electronico:</label><br>
                                     <input type="text" name="Correo" id="Correo" class="form-control" required pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}"
                                         title="Ejemplo@Dominio.com" placeholder="Ej: Ejemplo@Dominio.com">
                                 </div>
+                                <!-- Separador -->
                                 <hr style="background-color: white">
-                                <h3 class="text-center" style="color: white">Usuario</h3>
+
+                                <!-- Creacion de Usuarios Administradores -->
+                                <h3 class="text-center" style="color: white">Creacion Usuario</h3>
                                 <hr style="border-color: white">
+
+                                <!-- Usuario -->
                                 <div class="form-group">
                                     <label for="Nombre" style="color: white">Usuario:</label><br>
                                     <input type="text" name="User" id="User" class="form-control" required>
                                 </div>
+
+                                <!-- Contraseña -->
                                 <div class="form-group">
                                     <label for="Raza" style="color: white">Contraseña:</label><br>
                                     <input type="password" name="Pass" id="Pass" class="form-control" placeholder=""
                                         required maxlength="45">
                                 </div>
+                                
+                                <!-- Comprobacion de Contraseña -->
                                 <div class="form-group">
                                     <label for="Nombre" style="color: white">Repetir Contraseña:</label><br>
-                                    <input type="text" name="Repass" id="Repass" class="form-control" required>
+                                    <input type="password" name="Repass" id="Repass" class="form-control" required>
                                 </div>
+
+                                <!-- Buttom -->
                                 <hr>
                                 <div class="form-group" method="POST">
                                     <input type="submit" name="btnIngresar" class="btn btn-success btn-md" value="Registrar">

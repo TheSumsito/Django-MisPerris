@@ -1,10 +1,11 @@
+<!-- MENU -->
 {% extends 'Complements/admin.htm' %}
 {% block head %}
 <title>Modificar</title>
 {% endblock head%}
 {% block body%}
-
-<body background="../../../static/img/Fondos/Agregar.jpg">
+<!-- Formulario de Modificacion para Mascotas -->
+<body background="../../../static/img/Fondos/Modificar.jpg">
     <form method="POST" id="Formulario" autocomplete="off">
         <div id="login">
             <div class="container">
@@ -16,6 +17,8 @@
                                 <hr>
                                 <h3 class="text-center" style="color: white">Actualizar Mascota</h3>
                                 <hr>
+
+                                <!-- Buscador de Mascotas por su Nombre -->
                                 <div class="form-group">
                                     <label for="Nombre">Buscar Mascota:</label><br>
                                     <input type="text" name="NombreBusqueda" id="NombreBusqueda" class="form-control">
@@ -23,19 +26,27 @@
                                 <div class="form-group" method="POST">
                                     <input type="submit" name="btnAccion" class="btn btn-success btn-md" value="Buscar">
                                 </div>
+
+                                <!-- Nombre Mascota -->
                                 <div class="form-group">
                                     <label for="Nombre">Nombre:</label><br>
-                                    <input type="text" name="Nombre" id="Nombre" value="{{mas.Nombre}}" class="form-control">
+                                    <input type="text" name="Nombre" id="Nombre" value="{{mas.Nombre}}" class="form-control" readonly>
                                 </div>
+
+                                <!-- Raza Mascota -->
                                 <div class="form-group">
                                     <label for="Raza">Raza Predominante:</label><br>
                                     <input type="text" name="Raza" id="Raza" value="{{mas.Raza}}" class="form-control">
                                 </div>
+
+                                <!-- Descripcion de la Mascota -->
                                 <div class="form-group">
                                     <label for="Descripcion">Descripción:</label><br>
                                     <input type="text" name="Descripcion" id="Descripcion" value="{{mas.Descripcion}}"
                                         class="form-control">
                                 </div>
+
+                                <!-- Estado Mascota -->
                                 <div class="form-group">
                                         <label for="Estado">Estado:</label><br>
                                         <select name="Estado" id="Estado" class="form-control">

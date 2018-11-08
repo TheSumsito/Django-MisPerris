@@ -1,9 +1,11 @@
+<!-- MENU -->
 {% extends 'Complements/inicio.htm' %}
 {% block head %}
 <title>Home</title>
 {% endblock head%}
 
 {% block body %}
+<!-- Carousel -->
 <div id="carousel-example-1z" class="carousel slide carousel-fade" data-ride="carousel">
     <div class="carousel-inner" role="listbox">
         <div class="carousel-item active">
@@ -46,7 +48,7 @@
     </a>
 </div>
 
-
+<!-- SubMenu -->
 <center>
     <div class="container-fluid" style="background-color:mediumseagreen">
         <div class="row">
@@ -69,6 +71,8 @@
         </div>
     </div>
 </center>
+
+
 <!-- Textos con Imagenes (Contenedores) -->
 <div class="card-group">
     <div class="card">
@@ -92,43 +96,54 @@
                     Financiamiento para seguir ayudando</h6>
                 <img class="img-thumbnail " width="33% " src="../../../static/img/Otras/crowfunding.jpg" alt=" ">
             </div>
+
             <!-- Boton Campañas-->
             <button type="button " class="btn btn-light " style="border-color: black;position: relative; left: 3%; ">Campañas</button>
         </div>
     </div>
 </div>
-    <!-- Galeria -->
-    <center>
-            <div class="gallery" style="background-color: rgb(111, 198, 169)">
-                <div class="container">
-                    <h1 class="text-light">Fotos de Nuestros Perris</h1>
-                </div>
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col">
-                            <a href=""><img src="../../../static/img/rescatados/Pexel.jpg" width="15.2%" data-lity class="img-thumbnail" alt=""></a>
-                            <a href=""><img src="../../../static/img/rescatados/Oso.jpg" width="28%" data-lity class="img-thumbnail" alt=""></a>
-                            <a href=""><img src="../../../static/img/rescatados/Bigotes.jpg" width="17.6%" data-lity class="img-thumbnail" alt=""></a>
-                            <a href=""><img src="../../../static/img/rescatados/Chocolate.jpg" width="14.5%" data-lity class="img-thumbnail" alt=""></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="gallery" style="background-color:  rgb(111, 198, 169)">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col">
-                            <a href=""><img src="../../../static/img/rescatados/Maya.jpg" width="25.5%" data-lity class="img-thumbnail" alt=""></a>
-                            <a href=""><img src="../../../static/img/rescatados/Wifi.jpg" width="25%" data-lity class="img-thumbnail" alt=""></a>
-                            <a href=""><img src="../../../static/img/rescatados/Luna.jpg" width="25%" data-lity class="img-thumbnail" alt=""></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </center>
-        <div style="background-color: thistle; height: 100%;">
-            <h6>Desarrollo Web y Movil</h6>
-            <a href="{% url 'usuario' %}">usuario</a>
+
+
+<!-- Galeria -->
+<center>
+    <div class="gallery" style="background-color: rgb(111, 198, 169)">
+        <div class="container">
+            <h1 class="text-light">Fotos de Nuestros Perris</h1>
         </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col">
+                    <a href=""><img src="../../../static/img/rescatados/Pexel.jpg" width="15.2%" data-lity class="img-thumbnail"
+                            alt=""></a>
+                    <a href=""><img src="../../../static/img/rescatados/Oso.jpg" width="28%" data-lity class="img-thumbnail"
+                            alt=""></a>
+                    <a href=""><img src="../../../static/img/rescatados/Bigotes.jpg" width="17.6%" data-lity class="img-thumbnail"
+                            alt=""></a>
+                    <a href=""><img src="../../../static/img/rescatados/Chocolate.jpg" width="14.5%" data-lity class="img-thumbnail"
+                            alt=""></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="gallery" style="background-color:  rgb(111, 198, 169)">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col">
+                    <a href=""><img src="../../../static/img/rescatados/Maya.jpg" width="25.5%" data-lity class="img-thumbnail"
+                            alt=""></a>
+                    <a href=""><img src="../../../static/img/rescatados/Wifi.jpg" width="25%" data-lity class="img-thumbnail"
+                            alt=""></a>
+                    <a href=""><img src="../../../static/img/rescatados/Luna.jpg" width="25%" data-lity class="img-thumbnail"
+                            alt=""></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</center>
+
+<!-- Footer -->
+<div style="background-color: thistle; height: 100%;">
+    <h6>Desarrollo Web y Movil</h6>
+</div>
 
 {% endblock body %}

@@ -11,3 +11,8 @@
         return render(request, 'Views/Otras/regadopt.htm')
     else:
         return render(request, 'Views/Otras/regadopt.htm')
+
+
+
+    mascota=Mascota.objects.all()
+    return render(request, 'Views/Administrador/listar.htm', {'mascotas':mascota})

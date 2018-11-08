@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Contacto, Region,Ciudad, Mascota, Usuario
+from .models import Contacto, Region,Ciudad, Mascota, Usuario, ContactoAdopt
 from django.contrib import auth
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
@@ -82,6 +82,8 @@ def registraradmin(request):
             usu.is_staff=True
             usu.save()
             return render(request, 'Views/Administrador/regadmin.htm')
+        else:
+            return render(request, 'Views/Administrador/regadmin.htm')
     else:
         return render(request, 'Views/Administrador/regadmin.htm')
 
@@ -105,6 +107,8 @@ def registraradopt(request):
             usu.is_staff=False
             usu.save()
             return render(request, 'Views/Otras/regadopt.htm')
+        else:
+            return render(request, 'Views/Otras/regadopt.htm')
     else:
         return render(request, 'Views/Otras/regadopt.htm')
 
@@ -118,30 +122,24 @@ def listaradopt(request):
 
 def login(request):
     if request.POST:
-        correo=request.POST.get("Correo", "")
-        password=request.POST.get("Pass", "")
-        user=auth.authenticate(username=correo, password=password)
-        if user is not None and user.is_active:
-            auth.login(request, user)
-            na=request.user.is_staff
-            if na==True:
-                return render(request, 'Views/Administrador/menu.htm')
+        accion=request.POST.get("btnAccion", "")
+        if accion=="Ingresar":
+            correo=request.POST.get("Correo", "")
+            password=request.POST.get("Pass", "")
+            user=auth.authenticate(username=correo, password=password)
+            if user is not None and user.is_active:
+                auth.login(request, user)
+                na=request.user.is_staff
+                if na==True:
+                    return render(request, 'Views/Administrador/menu.htm')
+                else:
+                    return render(request, 'Views/Adoptante/menu.htm')
             else:
-                return render(request, 'Views/Adoptante/menu.htm')
+                return render(request, 'Views/Otras/login.htm')
+        if accion=="Registrarse":
+            return render(request, 'Views/Otras/regadopt.htm')
     else:
         return render(request, 'Views/Otras/login.htm')
-
-
-
-
-
-# ! Paginas
-def menu(request):
-    return render(request, 'Views/Administrador/menu.htm')
-    
-def menuadopt(request):
-    return render(request, 'Views/Adoptante/menu.htm')
-
 
 def modificar(request):
     if request.POST:
@@ -163,8 +161,10 @@ def modificar(request):
             mas.Raza=raza
             mas.Descripcion=desc
             mas.Estado=estado
-
             mas.save()
+
+            return render(request, 'Views/Administrador/modificar.htm')
+        else:
             return render(request, 'Views/Administrador/modificar.htm')
     else:
         return render(request, 'Views/Administrador/modificar.htm')
@@ -177,13 +177,39 @@ def eliminar(request):
             mas=Mascota.objects.get(Nombre=nombre)
             return render(request, 'Views/Administrador/eliminar.htm', {'mas':mas})
 
-        if accion=="Eliminar":
+        elif accion=="Eliminar":
             nombre=request.POST.get("Nombre", "")
             mas=Mascota.objects.get(Nombre=nombre)
             mas.delete()
             resp=True
             return render(request, 'Views/Administrador/eliminar.htm', {'mas':mas})
-            
-
+        else:
+            return render(request, 'Views/Administrador/eliminar.htm')            
     else:
         return render(request, 'Views/Administrador/eliminar.htm')
+
+# ! Paginas
+def menu(request):
+    return render(request, 'Views/Administrador/menu.htm')
+    
+def menuadopt(request):
+    return render(request, 'Views/Adoptante/menu.htm')
+
+def recuperar(request):
+    return render(request, 'Views/Otras/contrasena.htm')
+
+def contactoadopt(request):
+    if request.POST:
+        nombre=request.POST.get("Nombre", "")
+        telefono=request.POST.get("Telefono", "")
+        mensaje=request.POST.get("Mensaje", "")
+
+        con=ContactoAdopt(
+            Nombre=nombre,
+            Telefono=telefono,
+            Mensaje=mensaje
+        )
+        con.save()
+        return render(request, 'Views/Adoptante/contacto.htm')
+    else:
+        return render(request, 'Views/Adoptante/contacto.htm')

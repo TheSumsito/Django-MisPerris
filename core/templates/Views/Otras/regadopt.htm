@@ -1,9 +1,12 @@
+<!-- MENU -->
 {% extends 'Complements/inicio.htm' %}
 {% block head %}
 <title>Registrar Adoptado</title>
 {% endblock head %}
 
 {% block body %}
+
+<!-- Registro de Usuario Adoptante -->
 <body background="../../../static/img/Fondos/RegistroAdoptante.jpg">
     <form method="POST" id="Formulario" autocomplete="off">
         <div id="login">
@@ -16,35 +19,51 @@
                                 <hr>
                                 <h3 class="text-center" style="color: white">Registro Adoptante</h3>
                                 <hr>
+
+                                <!-- Nombre Adoptante -->
                                 <div class="form-group">
                                     <label for="Nombre" style="color: white">Nombre:</label><br>
                                     <input type="text" name="Nombre" id="Nombre" class="form-control" required>
                                 </div>
+
+                                <!-- Apellido Adoptante -->
                                 <div class="form-group">
                                     <label for="Nombre" style="color: white">Apellido:</label><br>
                                     <input type="text" name="Apellido" id="Apellido" class="form-control" required>
                                 </div>
+
+                                <!-- Correo Adoptante -->
                                 <div class="form-group">
                                     <label for="Nombre" style="color: white">Correo Electronico:</label><br>
                                     <input type="text" name="Correo" id="Correo" class="form-control" required pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}"
                                         title="Ejemplo@Dominio.com" placeholder="Ej: Ejemplo@Dominio.com">
                                 </div>
+
+                                <!-- Creacion Cuenta Usuario Adoptante -->
                                 <h3 class="text-center" style="color: white">Usuario</h3>
                                 <hr>
+                                
+                                <!-- Nombre Usuario -->
                                 <div class="form-group">
                                     <label for="Nombre" style="color: white">Usuario:</label><br>
                                     <input type="text" name="User" id="User" class="form-control" required>
                                 </div>
+
+                                <!-- Contraseña Usuario -->
                                 <div class="form-group">
                                     <label for="Raza" style="color: white">Contraseña:</label><br>
                                     <input type="password" name="Pass" id="Pass" class="form-control" placeholder=""
                                         required maxlength="45">
                                 </div>
+
+                                <!-- Verificacion de Contraseña -->
                                 <div class="form-group">
                                     <label for="Nombre" style="color: white">Repetir Contraseña:</label><br>
-                                    <input type="text" name="Repass" id="Repass" class="form-control" required>
+                                    <input type="password" name="Repass" id="Repass" class="form-control" required>
                                 </div>
                                 <hr>
+
+                                <!-- Boton Creacion Usuario -->
                                 <div class="form-group" method="POST">
                                     <input type="submit" name="btnIngresar" class="btn btn-success btn-md" value="Registrar">
                                 </div>

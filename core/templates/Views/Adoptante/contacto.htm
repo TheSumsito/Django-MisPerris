@@ -1,0 +1,56 @@
+<!-- MENU -->
+{% extends 'Complements/adopt.htm' %}
+{% block head %}
+{% endblock head %}
+
+{% block body%}
+
+<!-- Formulario de Contacto para Adoptante Registrado -->
+<body background="../../../static/img/Fondos/Contactanos.jpg">
+    <form method="POST" id="Formulario" autocomplete="off">
+        <div id="login">
+            <div class="container">
+                <div id="login-row" class="row justify-content-center align-items-center">
+                    <div id="login-column" class="col-md-6">
+                        <div id="login-box" class="col-md-12">
+                            <form id="login-form" class="form" method="POST">
+                                {% csrf_token %}
+                                <hr>
+                                <h3 class="text-center" style="color: white">Contactanos</h3>
+                                <hr>
+
+                                <!-- Nombre Adoptante -->
+                                <div class="form-group">
+                                    <label for="Nombre" style="color: white">Nombre Completo:</label><br>
+                                    <input type="text" name="Nombre" id="Nombre" class="form-control" placeholder="Ej: Ignacio Copano"
+                                        required title="Ignacion Copano">
+                                </div>
+                                
+                                <!-- Telefono Adoptante -->
+                                <div class="form-group">
+                                    <label for="Telefono" style="color: white">Telefono:</label><br>
+                                    <input type="text" name="Telefono" id="Telefono" class="form-control" placeholder="Ej: 947261827"
+                                        required>
+                                </div>
+
+                                <!-- Mensaje de Adopcion o Consultas -->
+                                <div class="form-group">
+                                    <label for="Telefono" style="color: white">Mensaje:</label><br>
+                                    <textarea name="Mensaje" id="Mensaje" cols="70" rows="3.9" placeholder="Ingrese un Mensaje (Obligatorio)" required></textarea>
+                                </div>
+                                <hr>
+
+                                <!-- Buttom -->
+                                <div class="form-group" method="POST">
+                                    <input type="submit" name="btnIngresar" class="btn btn-success btn-md" value="Ingresar">
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    {% endblock body%}

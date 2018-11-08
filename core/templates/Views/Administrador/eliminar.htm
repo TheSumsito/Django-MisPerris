@@ -1,9 +1,10 @@
+<!-- MENU -->
 {% extends 'Complements/admin.htm' %}
 {% block head %}
 
 {% endblock head%}
 {% block body%}
-
+<!-- Formulario para Eliminar Mascotas -->
 <body background="../../../static/img/Fondos/Agregar.jpg">
     <form method="POST" id="Formulario" autocomplete="off">
         <div id="login">
@@ -16,6 +17,8 @@
                                 <hr>
                                 <h3 class="text-center" style="color: white">Ingresar Mascota</h3>
                                 <hr>
+
+                                <!-- Buscar una Mascota -->
                                 <div class="form-group">
                                         <label for="Nombre">Buscar Mascota:</label><br>
                                         <input type="text" name="NombreBusqueda" id="NombreBusqueda" class="form-control">
@@ -23,21 +26,29 @@
                                 <div class="form-group" method="POST">
                                     <input type="submit" name="btnAccion" class="btn btn-success btn-md" value="Buscar">
                                 </div>
+
+                                <!-- Nombre Mascota -->
                                 <div class="form-group">
                                     <label for="Nombre">Nombre:</label><br>
                                     <input type="text" name="Nombre" id="Nombre" value="{{mas.Nombre}}" class="form-control" readonly>
                                 </div>
+
+                                <!-- Raza Mascota -->
                                 <div class="form-group">
                                     <label for="Raza">Raza Predominante:</label><br>
-                                    <input type="text" name="Raza" id="Raza" value="{{mas.Raza}}" class="form-control" disabled>
+                                    <input type="text" name="Raza" id="Raza" value="{{mas.Raza}}" class="form-control" readonly>
                                 </div>
+
+                                <!-- Descripcion Mascota -->
                                 <div class="form-group">
                                     <label for="Descripcion">Descripción:</label><br>
-                                    <input type="text" name="Descripcion" id="Descripcion" value="{{mas.Descripcion}}" class="form-control" disabled>
+                                    <input type="text" name="Descripcion" id="Descripcion" value="{{mas.Descripcion}}" class="form-control" readonly>
                                 </div>
+
+                                <!-- Estado Mascota -->
                                 <div class="form-group">
                                     <label for="Estado">Estado:</label><br>
-                                    <input type="text" name="Estado" id="Estado" value="{{mas.Estado}}" class="form-control" disabled>
+                                    <input type="text" name="Estado" id="Estado" value="{{mas.Estado}}" class="form-control" readonly>
                                 </div>
                                 <div class="form-group" method="POST">
                                         <input type="submit" name="btnAccion" class="btn btn-success btn-md" value="Eliminar">

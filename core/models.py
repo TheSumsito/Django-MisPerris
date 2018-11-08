@@ -46,3 +46,11 @@ class Contacto(models.Model):
 
     def __str__(self):
         return self.Rut 
+
+class ContactoAdopt(models.Model):
+    Nombre=models.CharField(max_length=45)
+    Telefono=models.IntegerField()
+    Mensaje=models.TextField(max_length=250)
+
+    def __str__(self):
+        return self.Nombre

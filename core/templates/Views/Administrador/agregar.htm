@@ -1,9 +1,11 @@
+<!-- MENU -->
 {% extends 'Complements/admin.htm' %}
 {% block head %}
 <title>Agregar Rescatado</title>
 {% endblock head %}
 
 {% block body %}
+<!-- Ingreso de Mascotas -->
 <body background="../../../static/img/Fondos/Agregar.jpg">
     <form method="POST" id="Formulario" autocomplete="off">
         <div id="login">
@@ -16,22 +18,32 @@
                                 <hr>
                                 <h3 class="text-center" style="color: white">Ingresar Mascota</h3>
                                 <hr>
+
+                                <!-- Fotografia Mascota -->
                                 <div class="form-group">
                                     <label for="Fotografia">Fotografia:</label><br>
                                     <input type="file" name="Fotografia" id="Fotografia" class="form-control" placeholder="Foto" required>
                                 </div>
+
+                                <!-- Nombre Mascota -->
                                 <div class="form-group">
                                     <label for="Nombre">Nombre:</label><br>
                                     <input type="text" name="Nombre" id="Nombre" class="form-control" placeholder="Ej: Laika" required>
                                 </div>
+
+                                <!-- Raza Mascota -->
                                 <div class="form-group">
                                     <label for="Raza">Raza Predominante:</label><br>
                                     <input type="text" name="Raza" id="Raza" class="form-control" placeholder="Ej: Bassed Hound" required>
                                 </div>
+
+                                <!-- Descripcion Mascota -->
                                 <div class="form-group">
                                     <label for="Descripcion">Descripción:</label><br>
                                     <input type="text" name="Descripcion" id="Descripcion" class="form-control" required>
                                 </div>
+
+                                <!-- Estado Mascota -->
                                 <div class="form-group">
                                     <label for="Estado">Estado:</label><br>
                                     <select name="Estado" id="Estado" class="form-control">
