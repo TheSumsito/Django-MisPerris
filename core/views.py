@@ -1,14 +1,16 @@
 from django.shortcuts import render
-from .models import Contacto, Region,Ciudad, Mascota, Usuario, ContactoAdopt
+from .models import Contacto, Region,Ciudad, Mascota, ContactoAdopt
 from django.contrib import auth
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 
 
 # Create your views here.
+#! HOME
 def home(request):
     return render(request, 'Views/Otras/home.htm')    
 
+#! Formulario Contacto "HOME"
 def contacto(request):
     ciudades=Ciudad.objects.all()
     regiones=Region.objects.all()
@@ -40,7 +42,7 @@ def contacto(request):
     else:
         return render(request, 'Views/Otras/contacto.htm',{'ciudad':ciudades, 'region': regiones})
 
-
+#! Agregar Mascota "ADMINISTRADOR"
 def agregar(request):
     if request.POST:
         foto=request.POST.get("Fotografia", "")
@@ -61,6 +63,7 @@ def agregar(request):
     else:
         return render(request, 'Views/Administrador/agregar.htm')
 
+#! Registrar Usuario "ADMINISTRADOR"
 def registraradmin(request):
     if request.POST:
         nombre=request.POST.get("Nombre", "")
@@ -87,6 +90,7 @@ def registraradmin(request):
     else:
         return render(request, 'Views/Administrador/regadmin.htm')
 
+#! Registrar Usuario "ADOPTANTE"
 def registraradopt(request):
     if request.POST:
         nombre=request.POST.get("Nombre", "")
@@ -112,14 +116,17 @@ def registraradopt(request):
     else:
         return render(request, 'Views/Otras/regadopt.htm')
 
-
+#! Listar Mascotas "ADMINISTRADOR"
 def listaradmin(request):
     mascota=Mascota.objects.all()
     return render(request, 'Views/Administrador/listar.htm', {'mascotas':mascota})
+
+#! Listar Mascotas "ADOPTANTE"
 def listaradopt(request):
     mascota=Mascota.objects.all()
     return render(request, 'Views/Adoptante/listar.htm', {'mascotas': mascota})
 
+#! LOGIN "USUARIOS"
 def login(request):
     if request.POST:
         accion=request.POST.get("btnAccion", "")
@@ -141,6 +148,7 @@ def login(request):
     else:
         return render(request, 'Views/Otras/login.htm')
 
+#! Modificar Mascota "ADMINISTRADOR"
 def modificar(request):
     if request.POST:
         accion=request.POST.get("btnAccion","")
@@ -169,6 +177,7 @@ def modificar(request):
     else:
         return render(request, 'Views/Administrador/modificar.htm')
 
+#! Eliminar Mascota "ADMINISTRADOR"
 def eliminar(request):
     if request.POST:
         accion=request.POST.get("btnAccion", "")
@@ -188,16 +197,13 @@ def eliminar(request):
     else:
         return render(request, 'Views/Administrador/eliminar.htm')
 
-# ! Paginas
+#! MENU "USUARIOS"
 def menu(request):
     return render(request, 'Views/Administrador/menu.htm')
-    
 def menuadopt(request):
     return render(request, 'Views/Adoptante/menu.htm')
 
-def recuperar(request):
-    return render(request, 'Views/Otras/contrasena.htm')
-
+#! Contacto "ADOPTANTE"
 def contactoadopt(request):
     if request.POST:
         nombre=request.POST.get("Nombre", "")
